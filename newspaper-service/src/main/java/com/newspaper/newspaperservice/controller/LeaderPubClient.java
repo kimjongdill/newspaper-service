@@ -14,8 +14,9 @@ import java.util.List;
 public interface LeaderPubClient {
 
     @RequestMapping(method = RequestMethod.GET,
-            value = "/posts?author={author}",
+            value = "/posts?author={author}&per_page={numArticles}",
             produces = "application/json")
-    List<Article> getAllByAuthor(@PathVariable("author") Long author);
+    List<Article> getTopByAuthor(@PathVariable("author") Long author,
+                                 @PathVariable("numArticles") Long numArticles);
 
 }

@@ -22,19 +22,20 @@ public class ArticleServiceController {
     private final long author = 1548;
 
     @GetMapping(value = "/all")
-    public ResponseEntity<List<Article>> getLatest()
-    {
-        System.out.println("In Controller\n");
+    public ResponseEntity<List<Article>> getAll() {
 
-        List<Article> articles = leaderPubClient.getAllByAuthor(author);
-        List<Article> new_articles = new ArrayList<Article>();
-        for(Article article : articles){
-            Article a = Article.builder().id(article.getId()).build();
-            new_articles.add(a);
-        }
+        List<Article> articles = leaderPubClient.getTopByAuthor(author, 100l);
 
         return new ResponseEntity<List<Article>>(
-                new_articles, HttpStatus.OK);
+                articles, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/latest")
+    public ResponseEntity<Article> getLatest() {
+
+        Article article = leaderPubClient.getTopByAuthor(author, 1l).get(0);
+
+        return new ResponseEntity<Article>(article, HttpStatus.OK);
     }
 
 }
