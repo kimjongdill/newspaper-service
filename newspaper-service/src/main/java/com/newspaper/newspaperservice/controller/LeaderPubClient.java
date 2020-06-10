@@ -2,15 +2,20 @@ package com.newspaper.newspaperservice.controller;
 
 import com.newspaper.newspaperservice.Article;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(name= "leaderpub", url = "https://www.leaderpub.com/wp-json/wp/v2/posts")
+import java.util.List;
+
+@Component
+@FeignClient(name= "leaderpub", url = "https://www.leaderpub.com/wp-json/wp/v2")
 public interface LeaderPubClient {
 
-    @GetMapping(value = "/")
-    Article getLatest(Long author);
-
-    @GetMapping(value = "/")
-    Article getById(Long author, Long id);
+    @RequestMapping(method = RequestMethod.GET,
+            value = "/posts?author={author}",
+            produces = "application/json")
+    List<Article> getAllByAuthor(@PathVariable("author") Long author);
 
 }

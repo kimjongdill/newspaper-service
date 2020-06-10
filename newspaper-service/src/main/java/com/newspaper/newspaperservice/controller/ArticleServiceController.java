@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
-@RequestMapping(value="/articles")
 public class ArticleServiceController {
 
     @Autowired
@@ -19,10 +21,20 @@ public class ArticleServiceController {
 
     private final long author = 1548;
 
-    @GetMapping(value = "/id/{id}")
-    public ResponseEntity<Article> getById(@PathVariable(name = "id") long id)
+    @GetMapping(value = "/all")
+    public ResponseEntity<List<Article>> getLatest()
     {
-        return new ResponseEntity<Article>(leaderPubClient.getById(author, id), HttpStatus.OK);
+        System.out.println("In Controller\n");
+
+        List<Article> articles = leaderPubClient.getAllByAuthor(author);
+        List<Article> new_articles = new ArrayList<Article>();
+        for(Article article : articles){
+            Article a = Article.builder().id(article.getId()).build();
+            new_articles.add(a);
+        }
+
+        return new ResponseEntity<List<Article>>(
+                new_articles, HttpStatus.OK);
     }
 
 }
