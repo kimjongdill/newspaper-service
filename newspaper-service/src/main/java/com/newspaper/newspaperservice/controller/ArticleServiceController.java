@@ -1,6 +1,7 @@
 package com.newspaper.newspaperservice.controller;
 
 import com.newspaper.newspaperservice.Article;
+import com.newspaper.newspaperservice.ArticleRepository;
 import feign.Feign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,25 +18,18 @@ import java.util.List;
 public class ArticleServiceController {
 
     @Autowired
-    LeaderPubClient leaderPubClient;
+    ArticleRepository ar;
 
     private final long author = 1548;
 
-    @GetMapping(value = "/all")
-    public ResponseEntity<List<Article>> getAll() {
-
-        List<Article> articles = leaderPubClient.getTopByAuthor(author, 100l);
-
-        return new ResponseEntity<List<Article>>(
-                articles, HttpStatus.OK);
+    @GetMapping(value = "/random")
+    public ResponseEntity<Article> getRandom() {
+        return new ResponseEntity<Article>(ar.GetRandomArticle(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/latest")
     public ResponseEntity<Article> getLatest() {
-
-        Article article = leaderPubClient.getTopByAuthor(author, 1l).get(0);
-
-        return new ResponseEntity<Article>(article, HttpStatus.OK);
+        return new ResponseEntity<Article>(ar.GetLatestArticle(), HttpStatus.OK);
     }
 
 }

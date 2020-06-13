@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Data
 @Builder
-public class Article {
+public class Article implements Comparable<Article>{
     private long id;
     private Date date;
     private Date date_gmt;
@@ -15,4 +15,7 @@ public class Article {
     private RenderedText content;
     private String jetpack_featured_media_url;
 
+    public int compareTo(Article other){
+        return this.date.compareTo(other.date);
+    }
 }
