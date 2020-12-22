@@ -18,4 +18,9 @@ public class Article implements Comparable<Article>{
     public int compareTo(Article other){
         return this.date.compareTo(other.date);
     }
+
+    public RenderedText getContent()
+    {
+        return content;
+    }
 }

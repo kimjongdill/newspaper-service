@@ -6,10 +6,7 @@ import feign.Feign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,11 +20,13 @@ public class ArticleServiceController {
     private final long author = 1548;
 
     @GetMapping(value = "/random")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<Article> getRandom() {
         return new ResponseEntity<Article>(ar.GetRandomArticle(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/latest")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<Article> getLatest() {
         return new ResponseEntity<Article>(ar.GetLatestArticle(), HttpStatus.OK);
     }

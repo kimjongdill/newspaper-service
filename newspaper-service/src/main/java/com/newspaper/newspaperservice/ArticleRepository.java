@@ -11,7 +11,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.Random;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
-
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 @Component
 public class ArticleRepository {
@@ -24,6 +25,7 @@ public class ArticleRepository {
     private LocalDateTime nextFetch;
     private final long refreshInterval = 4; // Hours
     private final long author = 1548;
+    private final Pattern removeScripts = Pattern.compile("<script>.*</script>", Pattern.CASE_INSENSITIVE);
 
     public ArticleRepository()
     {
@@ -39,6 +41,7 @@ public class ArticleRepository {
         Integer randArticle = random.nextInt(numArticles);
         Article[] arr = {};
         arr = this.articles.toArray(arr);
+        
         return arr[randArticle];
     }
 
