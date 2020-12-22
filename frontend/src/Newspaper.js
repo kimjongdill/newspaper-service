@@ -36,17 +36,32 @@ class Newspaper extends React.Component {
     }
 
     render() {
+        const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        let date = new Date(this.state.story?.date);
+        
         return(
-            <div>
-                <h1>Niles Daily Star</h1>
-                <button onClick={this.randomMode}>random</button>
-                <button onClick={this.latestMode}>latest</button>
-                <h2>{this.state.story?.title?.rendered}</h2>
-                <p>{Date(this.state.story?.date)}</p>
-                <div
-                    dangerouslySetInnerHTML={{
-                        __html: this.state.story?.content?.rendered
-                    }}></div>
+            <div className="frontPage">
+                <div className="stripe">
+                    <button className="button" onClick={this.randomMode}>Random</button>
+                    <button className="button" onClick={this.latestMode}>Latest</button>
+                    Serving Niles, Buchanan and Edwardsburg
+                </div>
+                <div className="banner">
+                    Niles Daily Star
+                </div>
+                <div className="headline">
+                    <h2>{this.state.story?.title?.rendered}</h2>
+                    <p>{date.toLocaleDateString("en-US", dateOptions)}</p>
+                </div>
+                <div className="story">
+                    {this.state.story?.jetpack_featured_media_url ?
+                        <div className="picture"><img src={this.state.story?.jetpack_featured_media_url}></img></div>
+                        : ""
+                    }
+                    <div dangerouslySetInnerHTML={{
+                            __html: this.state.story?.content?.rendered
+                        }}></div>
+                </div>
             </div>
         )
     }
