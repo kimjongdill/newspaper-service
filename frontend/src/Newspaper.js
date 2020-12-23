@@ -42,22 +42,31 @@ class Newspaper extends React.Component {
         return(
             <div className="frontPage">
                 <div className="stripe">
-                    <button className="button" onClick={this.randomMode}>Random</button>
-                    <button className="button" onClick={this.latestMode}>Latest</button>
-                    Serving Niles, Buchanan and Edwardsburg
+                    <div className="date">
+                        {date.toLocaleDateString("en-US", dateOptions) + "\t\t"}
+                    </div>
+                    SERVING NILES, BUCHANAN, AND EDWARDSBURG
                 </div>
                 <div className="banner">
                     Niles Daily Star
+                    <div className="buttons">
+                        <button className="button" onClick={this.latestMode}>Hot Off The Press</button>
+                        <button className="button" onClick={this.randomMode}>Archive</button>
+                    </div>
                 </div>
                 <div className="headline">
                     <h2>{this.state.story?.title?.rendered}</h2>
-                    <p>{date.toLocaleDateString("en-US", dateOptions)}</p>
                 </div>
                 <div className="story">
                     {this.state.story?.jetpack_featured_media_url ?
                         <div className="picture"><img src={this.state.story?.jetpack_featured_media_url}></img></div>
                         : ""
                     }
+                    <div className="byline">
+                        <p><b>By CHRISTINA CLARK</b></p>
+                        <p>christina.clark@leaderpub.com</p>
+                    </div>
+                    
                     <div dangerouslySetInnerHTML={{
                             __html: this.state.story?.content?.rendered
                         }}></div>
