@@ -5,18 +5,15 @@ class Newspaper extends React.Component {
 
     constructor(props){
         super(props)
-        this.latest = "http://localhost:8080/latest";
-        this.random = "http://localhost:8080/random";
+        this.url = props.url;
+        
         this.state = {
             mode: this.latest,
             story: {},
         }
 
-        this.randomMode = this.randomMode.bind(this);
-        this.latestMode = this.latestMode.bind(this);
-
-        this.loadText = (url) => {
-            fetch(url,
+        this.loadText = () => {
+            fetch(this.url,
                 {mode: "cors",
                  method: "GET"})
                 .then( response => response.json())
@@ -24,15 +21,8 @@ class Newspaper extends React.Component {
         }
     }
 
-    randomMode = () => {
-        this.loadText(this.random);
-    }
-
-    latestMode = () => {
-        this.loadText(this.latest);
-    }
     async componentDidMount() {
-        this.latestMode();
+        this.loadText();
     }
 
     render() {
@@ -49,11 +39,8 @@ class Newspaper extends React.Component {
                 </div>
                 <div className="banner">
                     Niles Daily Star
-                    <div className="buttons">
-                        <button className="button" onClick={this.latestMode}>Hot Off The Press</button>
-                        <button className="button" onClick={this.randomMode}>Archive</button>
-                    </div>
                 </div>
+                <div className="buttons">&nbsp;</div>
                 <div className="headline">
                     <h2>{this.state.story?.title?.rendered}</h2>
                 </div>

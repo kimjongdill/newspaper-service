@@ -15,10 +15,8 @@ code {
 }
 
 .frontPage {
-  width: 600px;
-  margin-top: 2%;
-  margin-left: 2%;
-  margin-right: 2%;
+  width: 580px;
+  padding: 5px;
 }
 
 .banner {
@@ -33,6 +31,7 @@ code {
   font-size: 500%;
   font-weight: 500;
   line-height: 50%;
+  margin-bottom: 7px;
 }
 
 .buttons {
@@ -64,6 +63,7 @@ code {
 .headline {
   font-size: 100%;
   display: block;
+  padding-left: 5px;
 }
 
 .byline {
@@ -74,7 +74,7 @@ code {
 }
 
 .story {
-  max-width: 680px;
+  padding-left: 5px;
 }
 
 .stripe {

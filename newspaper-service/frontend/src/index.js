@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Newspaper />
+    <Newspaper url="http://localhost:8080/random" />
   </React.StrictMode>,
   document.getElementById('root')
 );
