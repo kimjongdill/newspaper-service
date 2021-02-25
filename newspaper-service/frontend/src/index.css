@@ -15,9 +15,10 @@ code {
 }
 
 .frontPage {
+  width: 600px;
   margin-top: 2%;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .banner {
@@ -47,28 +48,33 @@ code {
 }
 
 .picture {
-  display: block;
+  /* transform: scale(0.5, 0.5); */
   float: right;
-  max-height: 25%;
-  object-fit: scale-down;
-  padding-left: 2%;
-  padding-bottom: 2%;
+  max-width: 350px;
+  max-height: autopx;
+  overflow: hidden;
+  display: block;
+  padding: 4px;
+}
+
+.clear {
+  clear:both;
 }
 
 .headline {
-  font-size: 150%;
+  font-size: 100%;
+  display: block;
 }
 
 .byline {
   display: block;
-  float: left;
+  float: left, top;
   line-height: 50%;
-  padding-bottom: 3%;
   padding-right: 2%;
 }
 
 .story {
-  max-width: 95%;
+  max-width: 680px;
 }
 
 .stripe {
@@ -78,8 +84,9 @@ code {
   color: rgb(253, 253, 253);
   text-align: right;
   font-family: "helvetica", "sans-serif";
-  font-size: 110%;
+  font-size: 80%;
   font-weight: bold;
+  width: 100%;
 }
 
 .date{

@@ -15,7 +15,7 @@ code {
 }
 
 .frontPage {
-  width: 680px;
+  width: 600px;
   margin-top: 2%;
   margin-left: 2%;
   margin-right: 2%;
@@ -50,7 +50,7 @@ code {
 .picture {
   /* transform: scale(0.5, 0.5); */
   float: right;
-  max-width: 400px;
+  max-width: 350px;
   max-height: autopx;
   overflow: hidden;
   display: block;
@@ -86,7 +86,7 @@ code {
   font-family: "helvetica", "sans-serif";
   font-size: 80%;
   font-weight: bold;
-  width: 680px;
+  width: 100%;
 }
 
 .date{
