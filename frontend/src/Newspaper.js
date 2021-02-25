@@ -59,17 +59,17 @@ class Newspaper extends React.Component {
                 </div>
                 <div className="story">
                     {this.state.story?.jetpack_featured_media_url ?
-                        <div className="picture"><img src={this.state.story?.jetpack_featured_media_url}></img></div>
+                        <img class="picture" src={this.state.story?.jetpack_featured_media_url}></img>
                         : ""
                     }
                     <div className="byline">
                         <p><b>By CHRISTINA CLARK</b></p>
                         <p>christina.clark@leaderpub.com</p>
                     </div>
-                    
                     <div dangerouslySetInnerHTML={{
                             __html: this.state.story?.content?.rendered
                         }}></div>
+                    
                 </div>
             </div>
         )
