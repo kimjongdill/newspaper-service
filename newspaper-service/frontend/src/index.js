@@ -2,12 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Newspaper from './Newspaper'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Newspaper url="http://localhost:8080/random" />
+    <App />  
   </React.StrictMode>,
   document.getElementById('root')
 );

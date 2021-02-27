@@ -15,7 +15,7 @@ code {
 }
 
 .frontPage {
-  width: 580px;
+  width: 600px;
   padding: 5px;
 }
 
@@ -31,7 +31,6 @@ code {
   font-size: 500%;
   font-weight: 500;
   line-height: 50%;
-  margin-bottom: 7px;
 }
 
 .buttons {
@@ -63,7 +62,6 @@ code {
 .headline {
   font-size: 100%;
   display: block;
-  padding-left: 5px;
 }
 
 .byline {
