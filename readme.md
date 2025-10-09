@@ -1,7 +1,7 @@
 # Newspaper Viewer Project
 
 ## About
-This project was a gift to my sister-in-law, who at the time was a reporter for a newspaper in Niles, MI. This is part of a larger project which rendered the most recent published article on an e-ink display in her home. 
+This project was a gift to my sister-in-law, who at the time was a reporter for a newspaper in Niles, MI. There is a hardware component which renders the most recent published article on an e-ink display in her home. 
 
 ## How to Run
 ```
@@ -24,3 +24,7 @@ The most challenging part of this project was reverse engineering the API of the
 * Set up a CI/CD pipeline to confirm unit tests pass when pull requests are opened. 
 * Set up a CI/CD pipeline to deploy on pull request to main. 
 * Use the git tag to identify the most recent build. Store all build images in an archive to allow for rollback. 
+
+## Kind of Punk to do
+
+If I were interested in southern Michigan news I might build a private web client to read articles from this newspaper without ads. Seriously, check out their page, its unreadable. 
