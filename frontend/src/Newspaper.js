@@ -1,8 +1,7 @@
 import React from 'react';
 
 class Newspaper extends React.Component {
-
-
+    
     constructor(props){
         super(props)
         this.url = props.url;
